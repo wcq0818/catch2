@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mutex.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -75,6 +76,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>E:\task-controller\Third_Party\OpenSSL-Win64\include;E:\task-controller\Third_Party;$(IncludePath)</IncludePath>
     <LibraryPath>E:\task-controller\Third_Party\OpenSSL-Win64\lib\VC;E:\task-controller\Third_Party\cryptopp\lib;E:\task-controller\Third_Party\boost_1_66_0\lib64-msvc-14.1;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>E:\task-controller\Third_Party\OpenSSL-Win64\lib\VC;E:\task-controller\Third_Party\cryptopp\lib;E:\task-controller\Third_Party\boost_1_66_0\lib64-msvc-14.1;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\task-controller\Third_Party\OpenSSL-Win64\include;E:\task-controller\Third_Party;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
