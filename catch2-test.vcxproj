@@ -19,8 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bit\bit-fields.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mutex\mutex.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mutex\thread_pool.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
