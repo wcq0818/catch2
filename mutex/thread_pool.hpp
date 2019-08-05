@@ -4,6 +4,7 @@
 #include <boost/thread.hpp>
 #include <boost/function.hpp>
 #include <boost/shared_ptr.hpp>
+#include <condition_variable>
 
 class thread_task
 {
@@ -12,7 +13,8 @@ public:
 	virtual ~thread_task(){};
 	virtual void execute()
 	{
-		//printf("execute...\n");
+// 		printf("execute...\n");
+// 		boost::this_thread::sleep(boost::posix_time::seconds(30));
 	}
 };
 
@@ -23,30 +25,47 @@ class thread_task_queue
 public:
 	void push_task(const thread_task_ptr task)
 	{
-		boost::mutex::scoped_lock lock(task_queue_mutex_);
+ 		//boost::mutex::scoped_lock lock(task_queue_mutex_);
 		//boost::unique_lock<boost::mutex> lock(task_queue_mutex_);
 		printf("push_task begin...ID = %d\n", boost::this_thread::get_id());
 		//boost::this_thread::sleep(boost::posix_time::seconds(20));
 		task_queue_.push(task);
-		lock.unlock();
-		cond_.notify_one();			
-		boost::this_thread::sleep(boost::posix_time::seconds(1));
+		//lock.unlock();
+		printf("unlock begin...ID = %d\n", boost::this_thread::get_id());
+		boost::this_thread::sleep(boost::posix_time::seconds(5));
+		printf("notify_one begin...ID = %d\n", boost::this_thread::get_id());
+		cond_.notify_one();
+		
+		//cond_.notify_all();	
+		
+		//lock.unlock();
+		boost::this_thread::sleep(boost::posix_time::seconds(5));
 		printf("push_task end...  ID = %d\n", boost::this_thread::get_id());
 	}
 	thread_task_ptr get_task()
 	{
 		//boost::mutex::scoped_lock enter_lock(enter_mutex_);
+		printf("uni_lock begin... ID = %d\n", boost::this_thread::get_id());
 		boost::unique_lock<boost::mutex> lock(task_queue_mutex_);
 		printf("get_task begin... ID = %d\n", boost::this_thread::get_id());
 		//boost::mutex::scoped_lock lock(task_queue_mutex_);
-		while(task_queue_.empty())
+		while (task_queue_.empty())
 		{
 			printf("wait begin...     ID = %d\n", boost::this_thread::get_id());
 			cond_.wait(lock);
+// 			if (cond_.wait_for(lock, boost::chrono::milliseconds(5000)) == boost::cv_status::timeout)
+// 			{
+// 				printf("wait end time_out ...     ID = %d\n", boost::this_thread::get_id());
+// 			}
+// 			else
+// 			{
+// 				printf("wait end notified ...     ID = %d\n", boost::this_thread::get_id());
+// 			}
 		}
 		thread_task_ptr task(task_queue_.front());
 		task_queue_.pop();
 		printf("get_task end...   ID = %d\n", boost::this_thread::get_id());
+		boost::this_thread::sleep(boost::posix_time::seconds(10));
 		return task;
 	}
 	bool empty() const
