@@ -1,5 +1,4 @@
 #pragma once
-
 #include <queue>
 #include <boost/thread.hpp>
 #include <boost/function.hpp>

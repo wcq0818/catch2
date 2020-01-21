@@ -19,11 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="asio\asio.cpp" />
+    <ClCompile Include="container\multi_index_sort.cpp" />
+    <ClCompile Include="container\word_count.cpp" />
+    <ClCompile Include="coroutine\coroutine.cpp" />
+    <ClCompile Include="coroutine\coroutine_boost.cpp" />
+    <ClCompile Include="coroutine\coroutine_fiber.cpp" />
+    <ClCompile Include="datetime\posix_time.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mutex\mutex.cpp" />
+    <ClCompile Include="openssl\signature.cpp" />
+    <ClCompile Include="structure\bit-fields.cpp" />
+    <ClCompile Include="structure\template.cpp" />
+    <ClCompile Include="structure\visitor.cpp" />
+    <ClCompile Include="thread\mutex.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mutex\thread_pool.hpp" />
+    <ClInclude Include="coroutine\coroutine.h" />
+    <ClInclude Include="thread\thread_pool.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -48,7 +60,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -78,8 +90,12 @@
     <Import Project="catch2-test.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(SolutionDir)\bin\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(SolutionDir)\bin\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -88,6 +104,8 @@
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>-D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>
+      </LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>libeay32MDd.lib;ssleay32MDd.lib;%(AdditionalDependencies)</AdditionalDependencies>

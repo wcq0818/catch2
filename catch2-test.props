@@ -3,8 +3,8 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <IncludePath>$(SolutionDir)\..\3thParty\catch2\v1.12.2\include;$(SolutionDir)\..\3thParty\oci\include;$(SolutionDir)\..\3thParty\boost_1_62_0;$(SolutionDir)\..\3thParty\OpenSSL-Win64\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\..\3thParty\oci\lib\MSVC;$(SolutionDir)\..\3thParty\OpenSSL-Win64\lib\VC;$(SolutionDir)\..\..\3thParty\boost_1_62_0\lib64-msvc-11.0;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\3thParty\catch2\v1.12.2\include;$(SolutionDir)..\3thParty\oci\include;$(SolutionDir)..\3thParty\OpenSSL-Win64\include;$(SolutionDir)..\3thParty\boost_1_66_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\3thParty\oci\lib\MSVC;$(SolutionDir)..\3thParty\OpenSSL-Win64\lib\VC;$(SolutionDir)..\3thParty\boost_1_66_0\lib64-msvc-14.1;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\temp\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
