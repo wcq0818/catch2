@@ -19,23 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="asio\asio.cpp" />
-    <ClCompile Include="container\multi_index_sort.cpp" />
-    <ClCompile Include="container\word_count.cpp" />
-    <ClCompile Include="coroutine\coroutine.cpp" />
-    <ClCompile Include="coroutine\coroutine_boost.cpp" />
-    <ClCompile Include="coroutine\coroutine_fiber.cpp" />
-    <ClCompile Include="datetime\posix_time.cpp" />
+    <ClCompile Include="gsoap\new\add\soapC.cpp" />
+    <ClCompile Include="gsoap\new\add\soapClient.cpp" />
+    <ClCompile Include="gsoap\new\stdsoap2.cpp" />
+    <ClCompile Include="gsoap\new\wasion\soapC.cpp" />
+    <ClCompile Include="gsoap\new\wasion\soapClient.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="openssl\signature.cpp" />
-    <ClCompile Include="structure\bit-fields.cpp" />
-    <ClCompile Include="structure\template.cpp" />
-    <ClCompile Include="structure\visitor.cpp" />
-    <ClCompile Include="thread\mutex.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="coroutine\coroutine.h" />
-    <ClInclude Include="thread\thread_pool.hpp" />
+    <None Include="gsoap\new\add\CustomBinding_USCOREResourceFactoryInterface.nsmap" />
+    <None Include="gsoap\new\wasion\ResourceInterfaceBinding.nsmap" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gsoap\new\add\soapH.h" />
+    <ClInclude Include="gsoap\new\add\soapStub.h" />
+    <ClInclude Include="gsoap\new\stdsoap2.h" />
+    <ClInclude Include="gsoap\new\wasion\soapH.h" />
+    <ClInclude Include="gsoap\new\wasion\soapStub.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -60,7 +60,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -100,7 +100,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>-D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>
       </LanguageStandard>
@@ -139,7 +139,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
